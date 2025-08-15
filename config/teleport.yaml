@@ -1,0 +1,23 @@
+teleport:
+  nodename: localhost
+  data_dir: /tmp/teleport
+  log:
+    output: stderr
+    severity: DEBUG
+
+auth_service:
+  enabled: true
+  listen_addr: 0.0.0.0:3025
+  cluster_name: container-cluster
+  tokens:
+    - "proxy,node:supersecret"
+
+proxy_service:
+  enabled: true
+  listen_addr: 0.0.0.0:3023
+  web_listen_addr: 0.0.0.0:3080
+  tunnel_listen_addr: 0.0.0.0:3024
+
+ssh_service:
+  enabled: true
+  listen_addr: 0.0.0.0:3022
